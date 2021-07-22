@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - echo "Installing dependenices ..."
+      - pip install -r requirements.txt -t lib
+  build:
+    commands:
+      - echo "Zipping .."
+      - cd lib
+      - zip r9 ../deployment_pack.zip .
+      - cd ..
+      - zip -g deployment_pack.zip csv-read.py
+  post_build:
+    commands:
+      - echo "Updating lambda function .."
+      - aws lambda update-function-code --function-name csv-reader --zip-file fileb://deployment_pack.zip
+      - echo "DONE!!"

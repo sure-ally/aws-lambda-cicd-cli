@@ -1,0 +1,10 @@
+import pandas as pd
+
+def lambda_handler(event, context):
+    df = pd.DataFrame()
+    print(df)
+
+    list = ['one', 'two', 'three', 'four']
+
+    df = pd.DataFrame(list)
+    print(df)
