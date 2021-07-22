@@ -12,7 +12,7 @@ phases:
       - cd lib
       - zip -r9 ../deployment_pack.zip .
       - cd ..
-      - zip -g deployment_pack.zip csv-read.py
+      - zip -g deployment_pack.zip lambda_function.py
   post_build:
     commands:
       - echo "Updating lambda function .."
