@@ -7,4 +7,6 @@ def lambda_handler(event, context):
     list = ['one', 'two', 'three', 'four', 'five']
 
     df = pd.DataFrame(list)
+    
     print(df)
+    print(df.index())
